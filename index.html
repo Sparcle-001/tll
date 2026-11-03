@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D建模作品集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            inset:0;
+            z-index:99;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal.active {
+            display:flex;
+        }
+        .modal-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 w-full bg-dark/80 backdrop-blur-md z-50 border-b border-slate-700">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-primary">我的作品集</a>
+            <div class="space-x-6 text-sm">
+                <a href="#home" class="hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="hover:text-primary transition-colors">关于我</a>
+                <a href="#works" class="hover:text-primary transition-colors">作品</a>
+                <a href="#contact" class="hover:text-primary transition-colors">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Banner -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight text-shadow">
+                    3D建模 & 数字美术<br>作品集
+                </h1>
+                <p class="mt-5 text-gray-400 text-lg">专注三维模型、道具、场景、角色建模，擅长Blender / Maya / Substance Painter</p>
+                <a href="#works" class="inline-block mt-8 px-7 py-3 bg-primary hover:bg-blue-600 rounded-lg transition-all font-medium">查看作品</a>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <img src="assets/banner.jpg" alt="banner" class="w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-10 border-l-4 border-primary pl-4">关于我</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-card p-6 rounded-xl card-hover">
+                    <i class="fa fa-cube text-primary text-3xl"></i>
+                    <h3 class="text-lg font-semibold mt-4 text-white">三维建模</h3>
+                    <p class="text-gray-400 mt-2">硬表面道具、场景搭建、低模高模烘焙、拓扑、UV拆分</p>
+                </div>
+                <div class="bg-card p-6 rounded-xl card-hover">
+                    <i class="fa fa-paint-brush text-primary text-3xl"></i>
+                    <h3 class="text-lg font-semibold mt-4 text-white">材质贴图</h3>
+                    <p class="text-gray-400 mt-2">PBR材质制作、法线贴图、粗糙度、金属度贴图绘制</p>
+                </div>
+                <div class="bg-card p-6 rounded-xl card-hover">
+                    <i class="fa fa-gamepad text-primary text-3xl"></i>
+                    <h3 class="text-lg font-semibold mt-4 text-white">游戏资产</h3>
+                    <p class="text-gray-400 mt-2">适配引擎资源输出，Unity/UE资产整理，模型优化减面</p>
+                </div>
+            </div>
+            <div class="mt-10 bg-card p-6 rounded-xl">
+                <p class="text-gray-300 leading-relaxed">
+                    你在这里写自我介绍：例如大三数字媒体/游戏美术方向，熟练使用Blender、Substance Painter，有独立完成场景、道具建模经验，求职方向：游戏3D美术、建模师。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品画廊 -->
+    <section id="works" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-10 border-l-4 border-primary pl-4">作品展示</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 作品1 -->
+                <div class="bg-card rounded-xl overflow-hidden card-hover cursor-pointer work-item">
+                    <img src="assets/work1.jpg" alt="作品1" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-white">科幻道具模型</h3>
+                        <p class="text-sm text-gray-400 mt-2">Blender建模 + SP PBR材质</p>
+                    </div>
+                </div>
+                <!-- 作品2 -->
+                <div class="bg-card rounded-xl overflow-hidden card-hover cursor-pointer work-item">
+                    <img src="assets/work2.jpg" alt="作品2" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-white">古风场景</h3>
+                        <p class="text-sm text-gray-400 mt-2">场景搭建、贴图烘焙</p>
+                    </div>
+                </div>
+                <!-- 作品3 -->
+                <div class="bg-card rounded-xl overflow-hidden card-hover cursor-pointer work-item">
+                    <img src="assets/work3.jpg" alt="作品3" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-white">角色道具</h3>
+                        <p class="text-sm text-gray-400 mt-2">高模雕刻，拓扑UV</p>
+                    </div>
+                </div>
+                <!-- 继续复制上面区块增加更多作品 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系板块（无GitHub） -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-10 border-l-4 border-primary pl-4">联系我</h2>
+            <div class="bg-card p-8 rounded-xl">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-300 mb-6">如果对作品感兴趣，欢迎联系沟通合作、实习机会</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fa fa-envelope text-primary text-xl w-6"></i>
+                                <span>邮箱：xxx@xxx.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa fa-wechat text-primary text-xl w-6"></i>
+                                <span>微信：xxxxxx</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm">提示：把上面邮箱、微信替换成你自己的信息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 border-t border-slate-700 text-center text-gray-500 text-sm">
+        © 2026 3D建模作品集 | All Rights Reserved
+    </footer>
+
+    <!-- 图片弹窗 -->
+    <div class="modal" id="imgModal">
+        <img class="modal-img" id="modalImg">
+        <span onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl cursor-pointer">&times;</span>
+    </div>
+
+    <script>
+        // 图片弹窗逻辑
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+        document.querySelectorAll('.work-item img').forEach(item=>{
+            item.onclick = function(e){
+                e.stopPropagation();
+                modalImg.src = this.src;
+                modal.classList.add('active');
+            }
+        })
+        function closeModal(){
+            modal.classList.remove('active');
+        }
+        modal.onclick = function(e){
+            if(e.target === modal) closeModal();
+        }
+    </script>
+</body>
+</html>
