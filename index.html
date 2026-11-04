@@ -1,229 +1,281 @@
 <!DOCTYPE html>
-<html lang="zh‑CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF‑8">
-    <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-    <title>谭灵｜作品集 游戏执行策划 /3D建模师</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谭灵｜作品集 游戏执行策划 / 3D建模师</title>
     <style>
         * {
-            margin:0;
-            padding:0;
-            box‑sizing:border‑box;
-            font‑family:"Microsoft YaHei", system‑ui, sans‑serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", system-ui, sans-serif;
         }
+
         html {
-            scroll‑behavior:smooth;
+            scroll-behavior: smooth;
         }
-        :root{
-            --bg:#0e121c;
-            --card:#1a2030;
-            --accent:#60a5fa;
-            --text:#e2e8f0;
-            --muted:#94a3b8;
+
+        :root {
+            --bg: #0e121c;
+            --card: #1a2030;
+            --accent: #60a5fa;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
         }
-        body{
-            background:var(--bg);
-            color:var(--text);
-            line‑height:1.7;
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
-        nav{
-            position:sticky;
-            top:0;
-            background:rgba(14,18,28,0.85);
-            backdrop‑filter:blur(8px);
-            border‑bottom:1px solid #272f44;
-            z‑index:99;
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(14, 18, 28, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #272f44;
+            z-index: 99;
         }
-        .nav‑wrap{
-            max‑width:1140px;
-            margin:0 auto;
-            padding:1rem 1.2rem;
-            display:flex;
-            justify‑content:space‑between;
-            align‑items:center;
+
+        .nav-wrap {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .logo{
-            font‑size:1.25rem;
-            font‑weight:700;
-            color:var(--accent);
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
         }
-        .nav‑links a{
-            color:var(--muted);
-            text‑decoration:none;
-            margin‑left:1.4rem;
-            transition:color 0.24s;
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 1.4rem;
+            transition: color 0.24s;
         }
-        .nav‑links a:hover{
-            color:var(--accent);
+
+        .nav-links a:hover {
+            color: var(--accent);
         }
-        .container{
-            max‑width:1140px;
-            margin:0 auto;
-            padding:3.5rem 1.2rem;
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 3.5rem 1.2rem;
         }
-        .hero{
-            min‑height:70vh;
-            display:flex;
-            align‑items:center;
-            flex‑wrap:wrap;
-            gap:2.5rem;
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
         }
-        .hero‑text{
-            flex:1;
-            min‑width:280px;
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
         }
-        .hero‑text h1{
-            font‑size:clamp(2rem,5vw,3rem);
-            margin‑bottom:1rem;
+
+        .hero-text h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
         }
-        .hero‑text .job‑title{
-            color:var(--accent);
-            font‑size:1.2rem;
-            margin‑bottom:1.2rem;
+
+        .hero-text .job-title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
         }
-        .contact‑brief{
-            color:var(--muted);
-            margin‑bottom:2rem;
+
+        .contact-brief {
+            color: var(--muted);
+            margin-bottom: 2rem;
         }
-        .btn{
-            display:inline‑block;
-            padding:0.75rem 1.6rem;
-            border‑radius:8px;
-            text‑decoration:none;
-            font‑weight:500;
-            transition:transform 0.25s;
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.25s;
         }
-        .btn‑primary{
-            background:var(--accent);
-            color:#0b1324;
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0b1324;
         }
-        .btn‑primary:hover{
-            transform:translateY(-3px);
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
         }
-        h2.section‑title{
-            font‑size:1.8rem;
-            border‑left:4px solid var(--accent);
-            padding‑left:12px;
-            margin‑bottom:2rem;
+
+        h2.section-title {
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+            margin-bottom: 2rem;
         }
-        /*作品画廊*/
-        .works‑grid{
-            display:grid;
-            grid‑template‑columns:repeat(auto‑fill,minmax(270px,1fr));
-            gap:1.8rem;
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.8rem;
+            align-items: start;
         }
-        .work‑card{
-            background:var(--card);
-            border‑radius:12px;
-            overflow:hidden;
-            border:1px solid #272f44;
-            cursor:pointer;
-            transition:transform 0.3s ease, box‑shadow 0.3s ease;
+
+        .work-card {
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #272f44;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        .work‑card:hover{
-            transform:translateY(-7px);
-            box‑shadow:0 14px 35px rgba(96,165,250,0.18);
+
+        .work-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 35px rgba(96, 165, 250, 0.18);
         }
-        .work‑card img{
-            width:100%;
-            height:220px;
-            object‑fit:cover;
-            display:block;
+
+        .work-image {
+            width: 100%;
+            background: #111622;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
-        .work‑info{
-            padding:1.1rem;
+
+        .work-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
-        .work‑info h3{
-            margin‑bottom:0.35rem;
+
+        .work-info {
+            padding: 1.1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
-        .work‑info p{
-            color:var(--muted);
-            font‑size:0.9rem;
+
+        .work-info h3 {
+            margin-bottom: 0.35rem;
         }
-        /*技能标签*/
-        .skill‑tags{
-            display:flex;
-            flex‑wrap:wrap;
-            gap:0.6rem;
-            margin‑bottom:2rem;
+
+        .work-info p {
+            color: var(--muted);
+            font-size: 0.9rem;
         }
-        .skill‑tag{
-            background:#243350;
-            color:#a5c8fa;
-            padding:0.4rem 0.9rem;
-            border‑radius:6px;
-            font‑size:0.95rem;
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
         }
-        /*项目、教育卡片*/
-        .block‑card{
-            background:var(--card);
-            padding:1.4rem;
-            border‑radius:12px;
-            border:1px solid #272f44;
-            margin‑bottom:1.2rem;
+
+        .skill-tag {
+            background: #243350;
+            color: #a5c8fa;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
         }
-        .block‑card h3{
-            margin‑bottom:0.6rem;
+
+        .block-card {
+            background: var(--card);
+            padding: 1.4rem;
+            border-radius: 12px;
+            border: 1px solid #272f44;
+            margin-bottom: 1.2rem;
         }
-        .block‑card p{
-            color:var(--muted);
+
+        .block-card h3 {
+            margin-bottom: 0.6rem;
         }
-        /*联系模块*/
-        .contact‑block{
-            background:var(--card);
-            padding:1.8rem;
-            border‑radius:12px;
-            border:1px solid #272f44;
+
+        .block-card p {
+            color: var(--muted);
         }
-        .contact‑block p{
-            margin‑bottom:0.7rem;
-            color:var(--muted);
+
+        .contact-block {
+            background: var(--card);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid #272f44;
         }
-        footer{
-            text‑align:center;
-            padding:2rem 1rem;
-            border‑top:1px solid #272f44;
-            color:#64748b;
-            font‑size:0.9rem;
+
+        .contact-block p {
+            margin-bottom: 0.7rem;
+            color: var(--muted);
         }
-        /*大图弹窗*/
-        .modal{
-            position:fixed;
-            inset:0;
-            background:rgba(0,0,0,0.88);
-            z‑index:200;
-            display:none;
-            align‑items:center;
-            justify‑content:center;
-            padding:1.5rem;
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid #272f44;
+            color: #64748b;
+            font-size: 0.9rem;
         }
-        .modal.show{
-            display:flex;
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
         }
-        .modal‑img{
-            max‑width:92%;
-            max‑height:86vh;
-            border‑radius:10px;
+
+        .modal.show {
+            display: flex;
         }
-        .close‑modal{
-            position:absolute;
-            top:20px;
-            right:24px;
-            color:white;
-            font‑size:2.4rem;
-            cursor:pointer;
+
+        .modal-img {
+            max-width: 92%;
+            max-height: 86vh;
+            border-radius: 10px;
         }
-        /*移动端适配*/
-        @media(max‑width:720px){
-            .nav‑links a{margin‑left:0.7rem;font‑size:0.9rem;}
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            color: white;
+            font-size: 2.4rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links a {
+                margin-left: 0.7rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="nav‑wrap">
+        <div class="nav-wrap">
             <div class="logo">谭灵｜作品集</div>
-            <div class="nav‑links">
+            <div class="nav-links">
                 <a href="#home">首页</a>
                 <a href="#works">3D作品</a>
                 <a href="#skill">专业技能</a>
@@ -235,143 +287,165 @@
     </nav>
 
     <section class="container hero" id="home">
-        <div class="hero‑text">
+        <div class="hero-text">
             <h1>你好，我是谭灵</h1>
-            <div class="job‑title">求职意向：游戏执行策划 ｜ 3D建模师</div>
-            <div class="contact‑brief">
+            <div class="job-title">求职意向：游戏执行策划 ｜ 3D建模师</div>
+            <div class="contact-brief">
                 📍成都高新区 &nbsp;|&nbsp; 📞19802864658 &nbsp;|&nbsp; 📧392486154@qq.com
             </div>
-            <p style="color:var(--muted);margin‑bottom:1.8rem;">
-虚拟现实技术应用专业应届生，熟练使用 Unity、Unreal Engine 快速搭建游戏原型，拥有2D横版闯关项目完整实践经验；独立完成关卡布局、游玩节奏与难度设计。善用AI工具迭代美术资源，可完成基础测试与交互问题修复；重视玩家体验，擅长把设计想法落地引擎，具备文档撰写与沟通能力。
+            <p style="color: var(--muted); margin-bottom: 1.8rem;">
+                虚拟现实技术应用专业应届生，熟练使用 Unity、Unreal Engine 快速搭建游戏原型，拥有2D横版闯关项目完整实践经验；独立完成关卡布局、游玩节奏与难度设计。善用AI工具迭代美术资源，可完成基础测试与交互问题修复；重视玩家体验，擅长把设计想法落地引擎，具备文档撰写与沟通能力。
             </p>
-            <a href="#works" class="btn btn‑primary">浏览3D建模作品</a>
+            <a href="#works" class="btn btn-primary">浏览3D建模作品</a>
         </div>
     </section>
 
     <section class="container" id="works">
-        <h2 class="section‑title">🎨3D建模作品展示</h2>
-        <div class="works‑grid">
-            <div class="work‑card" data‑img="bj.jpg">
-                <img src="bj.jpg" alt="宝剑">
-                <div class="work‑info">
+        <h2 class="section-title">🎨 3D建模作品展示</h2>
+        <div class="works-grid">
+            <div class="work-card" data-img="bj.jpg">
+                <div class="work-image">
+                    <img src="bj.jpg" alt="宝剑">
+                </div>
+                <div class="work-info">
                     <h3>宝剑</h3>
                     <p>Blender道具建模、材质渲染</p>
                 </div>
             </div>
-            <div class="work‑card" data‑img="bjz.jpg">
-                <img src="bjz.jpg" alt="短剑">
-                <div class="work‑info">
+
+            <div class="work-card" data-img="bjz.jpg">
+                <div class="work-image">
+                    <img src="bjz.jpg" alt="短剑">
+                </div>
+                <div class="work-info">
                     <h3>短剑</h3>
                     <p>硬表面道具，UV拆分</p>
                 </div>
             </div>
-            <div class="work‑card" data‑img="majiu.jpg">
-                <img src="majiu.jpg" alt="老旧建筑">
-                <div class="work‑info">
+
+            <div class="work-card" data-img="majiu.jpg">
+                <div class="work-image">
+                    <img src="majiu.jpg" alt="老旧建筑">
+                </div>
+                <div class="work-info">
                     <h3>老旧建筑</h3>
                     <p>场景构件建模，资产轻量化</p>
                 </div>
             </div>
-            <div class="work‑card" data‑img="hhhhh.jpg">
-                <img src="hhhhh.jpg" alt="牙膏道具">
-                <div class="work‑info">
+
+            <div class="work-card" data-img="hhhhh.jpg">
+                <div class="work-image">
+                    <img src="hhhhh.jpg" alt="牙膏道具">
+                </div>
+                <div class="work-info">
                     <h3>牙膏道具</h3>
                     <p>道具建模，基础材质绘制</p>
                 </div>
             </div>
-            <div class="work‑card" data‑img="gyr.jpg">
-                <img src="gyr.jpg" alt="椅子">
-                <div class="work‑info">
+
+            <div class="work-card" data-img="gyr.jpg">
+                <div class="work-image">
+                    <img src="gyr.jpg" alt="椅子">
+                </div>
+                <div class="work-info">
                     <h3>椅子</h3>
                     <p>家具道具模型制作</p>
                 </div>
             </div>
-            <div class="work‑card" data‑img="zzsn.png">
-                <img src="zzsn.png" alt="戴珍珠耳环的少女">
-                <div class="work‑info">
+
+            <div class="work-card" data-img="zzsn.png">
+                <div class="work-image">
+                    <img src="zzsn.png" alt="戴珍珠耳环的少女">
+                </div>
+                <div class="work-info">
                     <h3>戴珍珠耳环的少女</h3>
                     <p>卡通角色建模渲染</p>
                 </div>
             </div>
         </div>
-        <p style="margin‑top:1rem;color:var(--muted);font‑size:0.9rem;">说明：全部作品使用Blender完成建模、UV拆分与材质绘制；遵循游戏资产轻量化规范，模型可直接导入Unity引擎预览。</p>
+
+        <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;">
+            说明：全部作品使用Blender完成建模、UV拆分与材质绘制；遵循游戏资产轻量化规范，模型可直接导入Unity引擎预览。
+        </p>
     </section>
 
     <section class="container" id="skill">
-        <h2 class="section‑title">💻专业技能</h2>
-        <div class="skill‑tags">
-            <span class="skill‑tag">Unity</span>
-            <span class="skill‑tag">Unreal Engine</span>
-            <span class="skill‑tag">Blender</span>
-            <span class="skill‑tag">关卡原型设计</span>
-            <span class="skill‑tag">蓝图基础交互</span>
-            <span class="skill‑tag">模型UV拆分</span>
-            <span class="skill‑tag">资产轻量化</span>
-            <span class="skill‑tag">AI美术资源迭代</span>
-            <span class="skill‑tag">Demo打包演示</span>
-            <span class="skill‑tag">VR/XR场景基础制作</span>
+        <h2 class="section-title">💻 专业技能</h2>
+        <div class="skill-tags">
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">Unreal Engine</span>
+            <span class="skill-tag">Blender</span>
+            <span class="skill-tag">关卡原型设计</span>
+            <span class="skill-tag">蓝图基础交互</span>
+            <span class="skill-tag">模型UV拆分</span>
+            <span class="skill-tag">资产轻量化</span>
+            <span class="skill-tag">AI美术资源迭代</span>
+            <span class="skill-tag">Demo打包演示</span>
+            <span class="skill-tag">VR/XR场景基础制作</span>
         </div>
-        <div class="block‑card">
+
+        <div class="block-card">
             <p>熟练使用 Unity、Unreal Engine 进行场景搭建与关卡原型制作；掌握蓝图基础交互，排查修复基础交互问题；具备2D横版游戏关卡设计能力，独立完成关卡布局与游玩节奏；熟练AI工具做素材生成、资源换皮迭代；熟悉资产规范、Demo打包、VR/XR场景基础流程。</p>
         </div>
     </section>
 
     <section class="container" id="project">
-        <h2 class="section‑title">📁项目经历</h2>
-        <div class="block‑card">
+        <h2 class="section-title">📁 项目经历</h2>
+        <div class="block-card">
             <h3>2D横版闯关游戏 Demo｜独立项目</h3>
             <p>使用Unity引擎完成原型开发，独立负责关卡设计、场景搭建；借助AI工具完成美术资源换皮迭代，快速验证关卡布局与游玩节奏；实现角色移动、碰撞等基础玩法交互，产出可运行Demo。锻炼引擎场景搭建、原型迭代能力，熟悉资源管理、素材替换流程。</p>
         </div>
-        <div class="block‑card">
+
+        <div class="block-card">
             <h3>虚拟现实专业课程实践项目</h3>
             <p>使用Blender完成道具、场景构件三维建模、UV拆分与基础材质绘制；学习模型面数控制、资产轻量化规范，产出可导入引擎使用的3D模型资产；将模型导入Unity做场景预览，掌握建模资产到引擎完整工作流。</p>
         </div>
     </section>
 
     <section class="container" id="edu">
-        <h2 class="section‑title">🎓教育背景</h2>
-        <div class="block‑card">
+        <h2 class="section-title">🎓 教育背景</h2>
+        <div class="block-card">
             <h3>成都职业技术学院｜虚拟现实技术应用｜大专</h3>
-            <p>2024‑2026<br>主修课程：数字化模型与动画，虚拟现实应用开发，虚拟现实程序设计，虚拟现实综合应用，全景摄影项目应用</p>
+            <p>2024-2026<br>主修课程：数字化模型与动画，虚拟现实应用开发，虚拟现实程序设计，虚拟现实综合应用，全景摄影项目应用</p>
         </div>
     </section>
 
     <section class="container" id="contact">
-        <h2 class="section‑title">📞联系我</h2>
-        <div class="contact‑block">
+        <h2 class="section-title">📞 联系我</h2>
+        <div class="contact-block">
             <p>姓名：谭灵</p>
             <p>电话：19802864658</p>
             <p>邮箱：392486154@qq.com</p>
             <p>所在地：成都高新区</p>
             <p>求职岗位：游戏执行策划 / 3D建模师</p>
-            <p style="margin‑top:1rem;">兴趣爱好：音乐、摄影、绘画、羽毛球、电影</p>
+            <p style="margin-top: 1rem;">兴趣爱好：音乐、摄影、绘画、羽毛球、电影</p>
         </div>
     </section>
 
     <footer>© 2026 谭灵 个人作品集｜All Rights Reserved</footer>
 
-    <!--弹窗大图-->
     <div class="modal" id="imgModal">
-        <span class="close‑modal">&times;</span>
-        <img class="modal‑img" id="modalSource">
+        <span class="close-modal">&times;</span>
+        <img class="modal-img" id="modalSource">
     </div>
 
     <script>
         const modal = document.getElementById("imgModal");
         const modalImg = document.getElementById("modalSource");
-        const closeBtn = document.querySelector(".close‑modal");
-        const cards = document.querySelectorAll(".work‑card");
+        const closeBtn = document.querySelector(".close-modal");
+        const cards = document.querySelectorAll(".work-card");
 
-        cards.forEach(card=>{
-            card.addEventListener("click",()=>{
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
                 modalImg.src = card.dataset.img;
                 modal.classList.add("show");
-            })
-        })
-        closeBtn.onclick = ()=> modal.classList.remove("show");
-        modal.onclick = (e)=>{
-            if(e.target === modal) modal.classList.remove("show");
-        }
+            });
+        });
+
+        closeBtn.onclick = () => modal.classList.remove("show");
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.classList.remove("show");
+        };
     </script>
 </body>
 </html>
